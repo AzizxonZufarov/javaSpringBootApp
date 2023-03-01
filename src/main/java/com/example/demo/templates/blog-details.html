@@ -1,0 +1,16 @@
+<div th:insert="blocks/header :: header"></div>
+
+<div class="container mt-5">
+    <div th:each="el : ${post}" class="alert alert-info mt-2">
+        <h3 th:text="${el.title}"/>
+        <h3 th:text="${el.anons}"/>
+        <h3 th:text="${el.full_text}"/>
+        <p th:text="${el.views}"/>
+        <a th:href="'/blog/' + ${el.id} + '/edit'">Редактировать</a>
+        <form th:action="'/blog/' + ${el.id} + '/remove'" method="post">
+            <button class="btn btn-alert" type="submit">Удалить</button>
+        </form>
+    </div>
+</div>
+
+<div th:insert="blocks/footer :: footer"></div>
