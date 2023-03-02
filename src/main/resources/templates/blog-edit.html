@@ -3,11 +3,11 @@
 <div class="container mt-5 mb-5">
     <h1>Редактировать статью</h1>
     <div th:each="el : ${post}">
-        <form action="/blog/add" method="post">
-            <input type="text" th:value="${el.title} name="title" placeholder="Название" class="form-control"/>
-            <input type="text" th:value="${el.anons}  name="anons" placeholder="Анонс" class="form-control"/>
-            <textarea name="full_text" placeholder="Полный текст" class="form-control" th:text="${el.full_text} />
-            <br><button type="submit" class="btn btn-success">Обновить</button>
+        <form method="post">
+            <input type="text" th:value="${el.title}" name="title" placeholder="Название" class="form-control"/>
+            <input type="text" th:value="${el.anons}"  name="anons" placeholder="Анонс" class="form-control"/>
+            <textarea name="full_text" placeholder="Полный текст" class="form-control" th:text="${el.full_text}" />
+            <button type="submit" class="btn btn-success">Обновить</button>
         </form>
     </div>
 </div>
