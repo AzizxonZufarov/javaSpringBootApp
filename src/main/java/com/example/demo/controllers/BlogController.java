@@ -13,6 +13,7 @@ import com.example.demo.repo.PostRepository;
 import java.util.ArrayList;
 import java.util.Optional;
 
+
 @Controller
 public class BlogController {
 
@@ -22,8 +23,9 @@ public class BlogController {
         this.postRepository = postRepository;
     }
 
+
     @GetMapping("/blog")
-    public String name(Model model, String name) {
+    public String blog(Model model, String name) {
         Iterable<Post> posts = postRepository.findAll();
         model.addAttribute("posts", posts);
         return "blogmain";
