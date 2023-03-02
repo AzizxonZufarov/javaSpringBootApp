@@ -75,9 +75,9 @@ public class BlogController {
     @PostMapping("/blog/{id}/edit")
     public String blogPostUpdate(
             @PathVariable(value="id") long id,
-            @PathVariable(value="title") String title,
-            @PathVariable(value="anons") String anons,
-            @PathVariable(value="full_text") String full_text,
+            @RequestParam String title,
+            @RequestParam String anons,
+            @RequestParam String full_text,
             Model model) {
         Post post = postRepository.findById(id).orElseThrow(() -> new MultipartException("404"));
         post.setTitle(title);

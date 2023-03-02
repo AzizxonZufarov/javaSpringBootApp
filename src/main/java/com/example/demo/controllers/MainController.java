@@ -7,17 +7,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class MainController {
     @GetMapping("/")
-    public String home(Model model, String name) {
-        model.addAttribute("home", name);
+    public String home(Model model) {
+        model.addAttribute("name", "index");
         return "index";
     }
 
     @GetMapping("/about")
-    public String about(Model model, String name) {
-        model.addAttribute("name", name);
+    public String about(Model model) {
+        model.addAttribute("name", "about");
         return "about";
     }
 }
