@@ -13,9 +13,6 @@ import com.example.demo.repo.PostRepository;
 import java.util.ArrayList;
 import java.util.Optional;
 
-//import org.springframework.web.bind.annotation.RestController;
-
-//@RestController
 @Controller
 public class BlogController {
 
@@ -25,27 +22,12 @@ public class BlogController {
         this.postRepository = postRepository;
     }
 
-
-    @GetMapping("/")
-    public String home(Model model, String name) {
-        model.addAttribute("home", name);
-        return "index";
-    }
-
-    @GetMapping("/about")
-    public String about(Model model, String name) {
-        model.addAttribute("name", name);
-        return "about";
-    }
-
-
     @GetMapping("/blogmain")
     public String blogmain(Model model) {
         Iterable<Post> posts = postRepository.findAll();
         model.addAttribute("posts", posts);
         return "blogmain";
     }
-
     @GetMapping("/blog/add")
     public String blogAdd(Model model) {
         return "blog-add";
