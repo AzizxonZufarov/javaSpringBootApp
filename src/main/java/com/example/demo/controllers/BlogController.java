@@ -22,7 +22,7 @@ public class BlogController {
         this.postRepository = postRepository;
     }
 
-    @GetMapping("/blogmain")
+    @GetMapping("/blog")
     public String blogmain(Model model) {
         Iterable<Post> posts = postRepository.findAll();
         model.addAttribute("posts", posts);
